@@ -49,6 +49,12 @@
 (add-my-package 'helm)
 (add-my-package 'cljr-helm)
 (add-my-package 'magit)
+(add-my-package 'drag-stuff)
+
+(require 'drag-stuff)
+(drag-stuff-mode t)
+(global-set-key (kbd "C-<up>") 'drag-stuff-up)
+(global-set-key (kbd "C-<down>") 'drag-stuff-down)
 
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
