@@ -18,7 +18,7 @@
 
 (defun add-my-package (p)
   (unless (package-installed-p p)
-    (if (not *refreshed*)
+    (unless *refreshed*
 	(progn
 	  (package-refresh-contents)
 	  (setq *refreshed* t)))
