@@ -1,0 +1,18 @@
+* setting up i3 peripherals
+** Fonts
+*** Download font awesome fonts https://fortawesome.github.io/Font-Awesome/
+    place *.ttf in ~/.fonts
+*** Download System San Francisco fonts https://github.com/supermarin/YosemiteSanFranciscoFont
+    Download .zip file and place *.ttf in ~/.fonts
+*** sudo apt-get install lxappearance, and choose SFNS Display as default fonts
+*** install infinality
+    sudo add-apt-repository ppa:no1wantdthisname/ppa
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install fontconfig-infinality
+** Themes
+*** install arc theme and switch to arc-darker theme via lxapperance
+*** install firefox arc darker theme
+*** install moka icon theme and choose it via lxappearance (under icon theme)
+
+
