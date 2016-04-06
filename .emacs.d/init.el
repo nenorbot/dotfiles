@@ -56,6 +56,7 @@
 (add-my-package 'flycheck-pos-tip)
 ;(add-my-package 'flycheck-tip)
 (add-my-package 'monky) 
+(add-my-package 'cider-eval-sexp-fu)
 
 (require 'ace-jump-mode)
 (autoload
@@ -148,6 +149,10 @@
   (flycheck-pos-tip-mode))
 
 (setq monky-process-type 'cmdserver)
+
+(add-hook 'cider-repl-mode-hook #'subword-mode)
+
+(require 'cider-eval-sexp-fu)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
