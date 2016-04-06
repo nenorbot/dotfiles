@@ -51,6 +51,11 @@
 (add-my-package 'magit)
 (add-my-package 'drag-stuff)
 (add-my-package 'ace-jump-mode)
+(add-my-package 'helm-projectile)
+(add-my-package 'flycheck-clojure)
+(add-my-package 'flycheck-pos-tip)
+;(add-my-package 'flycheck-tip)
+(add-my-package 'monky) 
 
 (require 'ace-jump-mode)
 (autoload
@@ -126,6 +131,23 @@
 (eval-after-load 'clojure-mode
   '(progn
      (define-key clojure-mode-map (kbd "C-c C-h") #'clojure-cheatsheet)))
+
+;(defalias 'helm-buffer-match-major-mode 'helm-buffers-list--match-fn)
+
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
+(global-set-key (kbd "C-c n") 'helm-projectile-find-file)
+(global-set-key (kbd "C-c l") 'helm-projectile-grep)
+
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(with-eval-after-load 'flycheck
+  (flycheck-pos-tip-mode))
+
+(setq monky-process-type 'cmdserver)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
