@@ -64,7 +64,7 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c f SPC") 'ace-jump-mode)
 
 (require 'drag-stuff)
 (drag-stuff-mode t)
@@ -81,7 +81,7 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 
 (add-hook 'cider-mode-hook #'eldoc-mode)
-(add-hook 'clojure-mode 'turn-on-eldoc-mode)
+;(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 
 (require 'browse-kill-ring)
 (browse-kill-ring-default-keybindings)
@@ -110,7 +110,13 @@
     (yas-minor-mode 1) ; for adding require/use/import
     (cljr-add-keybindings-with-prefix "C-c C-m"))
 
+(defun my-buffer-face-mode-fixed ()
+  (interactive)
+  (setq buffer-face-mode-face '(:family "DejaVu Sans Mono" :height 100 ))
+  (buffer-face-mode))
+
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
+(add-hook 'clojure-mode-hook 'my-buffer-face-mode-fixed)
 
 (require 'ac-cider)
 (global-auto-complete-mode t)
@@ -153,6 +159,8 @@
 (add-hook 'cider-repl-mode-hook #'subword-mode)
 
 (require 'cider-eval-sexp-fu)
+
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
