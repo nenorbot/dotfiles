@@ -112,7 +112,7 @@
 
 (defun my-buffer-face-mode-fixed ()
   (interactive)
-  (setq buffer-face-mode-face '(:family "DejaVu Sans Mono" :height 100 ))
+  (setq buffer-face-mode-face '(:family "DejaVu Sans Mono" :height 105 ))
   (buffer-face-mode))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
