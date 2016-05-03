@@ -98,8 +98,8 @@
 ;(load-theme 'zenburn t)
 (load-theme 'wombat t)
 
-(add-hook 'clojure-mode-hook #'paredit-mode)
-(add-hook 'cider-repl-mode-hook #'paredit-mode)
+(add-hook 'clojure-mode-hook 'enable-paredit-mode)
+(add-hook 'cider-repl-mode-hook 'enable-paredit-mode)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 
@@ -178,3 +178,5 @@
 (dolist (file (directory-files defuns-dir t "\\w+"))
   (when (file-regular-p file)
     (load file)))
+
+(global-set-key (kbd "C-x n") #'new-empty-buffer)
