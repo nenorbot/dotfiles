@@ -57,6 +57,8 @@
 ;(add-my-package 'flycheck-tip)
 (add-my-package 'monky) 
 (add-my-package 'cider-eval-sexp-fu)
+(add-my-package 'perspective)
+(add-my-package 'persp-projectile)
 
 (require 'ace-jump-mode)
 (autoload
@@ -93,7 +95,8 @@
 (global-set-key (kbd "C-c w") 'er/expand-region)
 
 ;(load-theme 'solarized-dark t)
-(load-theme 'zenburn t)
+;(load-theme 'zenburn t)
+(load-theme 'wombat t)
 
 (add-hook 'clojure-mode-hook #'paredit-mode)
 (add-hook 'cider-repl-mode-hook #'paredit-mode)
@@ -161,6 +164,14 @@
 (require 'cider-eval-sexp-fu)
 
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js2-mode))
+
+(require 'perspective)
+(persp-mode)
+(require 'persp-projectile)
+(define-key global-map (kbd "C-c s") 'projectile-persp-switch-project)
+
+; redefining from face from perspective.el
+(face-spec-set 'persp-selected-face '((t :weight bold :foreground "CornflowerBlue")))
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
