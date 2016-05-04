@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+em_command="emacs -nw -Q"
+export EDITOR=$em_command
+alias em=$em_command
+
 # base16 shell color scheme taken from https://github.com/chriskempson/base16-shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
