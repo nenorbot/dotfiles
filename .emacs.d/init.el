@@ -180,3 +180,7 @@
     (load file)))
 
 (global-set-key (kbd "C-x n") #'new-empty-buffer)
+
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+
+
