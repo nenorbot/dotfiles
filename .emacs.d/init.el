@@ -59,6 +59,7 @@
 (add-my-package 'cider-eval-sexp-fu)
 (add-my-package 'perspective)
 (add-my-package 'persp-projectile)
+(add-my-package 'hackernews)
 
 (require 'ace-jump-mode)
 (autoload
@@ -194,3 +195,7 @@
                      (char-equal (char-syntax cb) ?\) )
                      (blink-matching-open))))
      (when matching-text (message matching-text))))
+
+(require 'hackernews)
+
+(setq hackernews-top-story-limit 40)
