@@ -62,7 +62,7 @@
 (add-my-package 'hackernews)
 (add-my-package 'elfeed)
 (add-my-package 'dumb-jump)
-(add-my-package 'hl-line)
+;(add-my-package 'hl-line)
 
 (require 'ace-jump-mode)
 (autoload
@@ -222,6 +222,6 @@
 (dumb-jump-mode)
 
 (global-hl-line-mode t)
-(set-face-background hl-line-face "Gray10")
-(set-face-attribute hl-line-face nil :underline nil)
+(set-face-attribute 'hl-line nil :background "Gray10" :underline nil)
+(set-face-foreground 'highlight nil)
 (set-cursor-color "#f4a460")
