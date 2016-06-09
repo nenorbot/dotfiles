@@ -60,6 +60,9 @@
 (add-my-package 'perspective)
 (add-my-package 'persp-projectile)
 (add-my-package 'hackernews)
+(add-my-package 'elfeed)
+(add-my-package 'dumb-jump)
+(add-my-package 'hl-line)
 
 (require 'ace-jump-mode)
 (autoload
@@ -162,11 +165,11 @@
 (global-set-key (kbd "C-c n") 'helm-projectile-find-file)
 (global-set-key (kbd "C-c l") 'helm-projectile-grep)
 
-(eval-after-load 'flycheck '(flycheck-clojure-setup))
-(add-hook 'after-init-hook #'global-flycheck-mode)
+;(eval-after-load 'flycheck '(flycheck-clojure-setup))
+;(add-hook 'after-init-hook #'global-flycheck-mode)
 
-(with-eval-after-load 'flycheck
-  (flycheck-pos-tip-mode))
+;; (with-eval-after-load 'flycheck
+;;   (flycheck-pos-tip-mode))
 
 (setq monky-process-type 'cmdserver)
 
@@ -209,3 +212,16 @@
 (require 'hackernews)
 
 (setq hackernews-top-story-limit 40)
+
+(require 'elfeed)
+(global-set-key (kbd "C-x w") 'elfeed)
+
+(setq elfeed-feeds
+      '("https://news.ycombinator.com/rss"))
+
+(dumb-jump-mode)
+
+(global-hl-line-mode t)
+(set-face-background hl-line-face "Gray10")
+(set-face-attribute hl-line-face nil :underline nil)
+(set-cursor-color "#f4a460")
