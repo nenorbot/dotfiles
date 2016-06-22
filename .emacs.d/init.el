@@ -62,6 +62,7 @@
 (add-my-package 'hackernews)
 (add-my-package 'elfeed)
 (add-my-package 'dumb-jump)
+(add-my-package 'helm-cider)
 ;(add-my-package 'hl-line)
 
 (require 'ace-jump-mode)
@@ -155,6 +156,8 @@
   (HEAD 2)
   (ANY 2)
   (context 2))
+
+(helm-cider-mode)
 
 ;(defalias 'helm-buffer-match-major-mode 'helm-buffers-list--match-fn)
 
