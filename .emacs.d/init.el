@@ -64,6 +64,7 @@
 (add-my-package 'dumb-jump)
 (add-my-package 'helm-cider)
 ;(add-my-package 'hl-line)
+(add-my-package 'buffer-move)
 
 (require 'ace-jump-mode)
 (autoload
