@@ -91,8 +91,10 @@
 (add-hook 'cider-mode-hook #'eldoc-mode)
 ;(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 
-(require 'browse-kill-ring)
-(browse-kill-ring-default-keybindings)
+;(require 'browse-kill-ring)
+;(browse-kill-ring-default-keybindings)
+
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
