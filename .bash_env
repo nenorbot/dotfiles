@@ -1,4 +1,2 @@
 export LC_TIME=en_US.UTF-8
-
-em_command="emacs -nw -Q"
-export EDITOR=$em_command
+export EDITOR="emacsclient -t"
