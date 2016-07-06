@@ -65,6 +65,7 @@
 (add-my-package 'helm-cider)
 ;(add-my-package 'hl-line)
 (add-my-package 'buffer-move)
+(add-my-package 'neotree)
 
 (require 'ace-jump-mode)
 (autoload
@@ -231,3 +232,9 @@
 (set-face-attribute 'hl-line nil :background "Gray10" :underline nil)
 (set-face-foreground 'highlight nil)
 (set-cursor-color "#f4a460")
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+;(setq projectile-switch-project-action 'neotree-projectile-action)
+(setq neo-smart-open t)
+
