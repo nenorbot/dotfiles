@@ -66,6 +66,8 @@
 ;(add-my-package 'hl-line)
 (add-my-package 'buffer-move)
 (add-my-package 'neotree)
+;(add-my-package 'scala-mode2)
+(add-my-package 'ensime)
 
 (require 'ace-jump-mode)
 (autoload
@@ -238,3 +240,5 @@
 ;(setq projectile-switch-project-action 'neotree-projectile-action)
 (setq neo-smart-open t)
 
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
