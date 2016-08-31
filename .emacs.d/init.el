@@ -68,6 +68,7 @@
 (add-my-package 'neotree)
 ;(add-my-package 'scala-mode2)
 (add-my-package 'ensime)
+;(add-my-package 'clojure-snippets)
 
 (require 'ace-jump-mode)
 (autoload
@@ -162,6 +163,9 @@
   (HEAD 2)
   (ANY 2)
   (context 2))
+
+;; indentation for clojure.core.match/match
+(put-clojure-indent 'match 1)
 
 (helm-cider-mode)
 
