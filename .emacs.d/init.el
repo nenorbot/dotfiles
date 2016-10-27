@@ -131,7 +131,7 @@
   (buffer-face-mode))
 
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
-(add-hook 'clojure-mode-hook 'my-buffer-face-mode-fixed)
+;(add-hook 'clojure-mode-hook 'my-buffer-face-mode-fixed)
 
 (require 'ac-cider)
 (global-auto-complete-mode t)
@@ -246,3 +246,5 @@
 
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+(global-auto-revert-mode t)
