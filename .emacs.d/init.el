@@ -238,7 +238,7 @@
 (set-face-attribute 'hl-line nil :background "Gray10" :underline nil)
 (set-face-foreground 'highlight nil)
 (set-cursor-color "#f4a460")
-(set-face-attribute 'isearch nil :background "RoyalBlue4")
+(set-face-attribute 'isearch nil :background "magenta4")
 (set-face-attribute 'lazy-highlight nil :background "yellow")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
