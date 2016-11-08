@@ -169,6 +169,8 @@
 
 (helm-cider-mode)
 
+(setq cider-repl-history-file "~/.cider_repl_history")
+
 ;(defalias 'helm-buffer-match-major-mode 'helm-buffers-list--match-fn)
 
 (projectile-global-mode)
