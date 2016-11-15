@@ -69,6 +69,7 @@
 ;(add-my-package 'scala-mode2)
 (add-my-package 'ensime)
 ;(add-my-package 'clojure-snippets)
+(add-my-package 'which-key)
 
 (require 'ace-jump-mode)
 (autoload
@@ -251,3 +252,7 @@
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (global-auto-revert-mode t)
+
+(require 'which-key)
+(which-key-mode)
+
