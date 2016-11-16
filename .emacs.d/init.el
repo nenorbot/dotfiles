@@ -165,7 +165,8 @@
   (DELETE 2)
   (HEAD 2)
   (ANY 2)
-  (context 2))
+  (context 2)
+  (defstate 0))
 
 ;; indentation for clojure.core.match/match
 (put-clojure-indent 'match 1)
