@@ -70,6 +70,8 @@
 (add-my-package 'ensime)
 ;(add-my-package 'clojure-snippets)
 (add-my-package 'which-key)
+(add-my-package 'company)
+(add-my-package 'company-quickhelp)
 
 (require 'ace-jump-mode)
 (autoload
@@ -134,22 +136,22 @@
 (add-hook 'clojure-mode-hook #'my-clojure-mode-hook)
 ;(add-hook 'clojure-mode-hook 'my-buffer-face-mode-fixed)
 
-(require 'ac-cider)
-(global-auto-complete-mode t)
-(add-hook 'cider-mode-hook 'ac-flyspell-workaround)
-(add-hook 'cider-mode-hook 'ac-cider-setup)
-(add-hook 'cider-repl-mode-hook 'ac-cider-setup)
-(eval-after-load "auto-complete"
-  '(progn
-     (add-to-list 'ac-modes 'cider-mode)
-     (add-to-list 'ac-modes 'cider-repl-mode)))
+;; (require 'ac-cider)
+;; (global-auto-complete-mode t)
+;; (add-hook 'cider-mode-hook 'ac-flyspell-workaround)
+;; (add-hook 'cider-mode-hook 'ac-cider-setup)
+;; (add-hook 'cider-repl-mode-hook 'ac-cider-setup)
+;; (eval-after-load "auto-complete"
+;;   '(progn
+;;      (add-to-list 'ac-modes 'cider-mode)
+;;      (add-to-list 'ac-modes 'cider-repl-mode)))
 
-(setq tab-always-indent 'complete)
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
+;; (setq tab-always-indent 'complete)
+;; (defun set-auto-complete-as-completion-at-point-function ()
+;;   (setq completion-at-point-functions '(auto-complete)))
 
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+;; (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (eval-after-load 'clojure-mode
   '(progn
@@ -256,3 +258,13 @@
 (require 'which-key)
 (which-key-mode)
 
+(global-company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+(company-quickhelp-mode 1)
+(eval-after-load 'company
+  '(define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin))
+
+(defun cider-repl-rebind-tab-hook ()
+  (define-key (current-local-map) (kbd "TAB") #'company-indent-or-complete-common))
+
+(add-hook 'cider-repl-mode-hook #'cider-repl-rebind-tab-hook)
