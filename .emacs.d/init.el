@@ -72,6 +72,7 @@
 (add-my-package 'which-key)
 (add-my-package 'company)
 (add-my-package 'company-quickhelp)
+(add-my-package 'command-log-mode)
 
 (require 'ace-jump-mode)
 (autoload
@@ -261,11 +262,17 @@
 
 (global-company-mode)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common)
+;(global-set-key [tab] #'company-indent-or-complete-common)
 (company-quickhelp-mode 1)
 (eval-after-load 'company
   '(define-key company-active-map (kbd "M-h") #'company-quickhelp-manual-begin))
 
+
 (defun cider-repl-rebind-tab-hook ()
-  (define-key (current-local-map) (kbd "TAB") #'company-indent-or-complete-common))
+  (define-key (current-local-map) (kbd "TAB") #'company-indent-or-complete-common)
+  (define-key (current-local-map) [tab] #'company-indent-or-complete-common))
 
 (add-hook 'cider-repl-mode-hook #'cider-repl-rebind-tab-hook)
+
+(setq company-require-match 'never)
+(setq company-selection-wrap-around t)
