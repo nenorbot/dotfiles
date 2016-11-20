@@ -76,6 +76,9 @@
 (add-my-package 'ivy)
 (add-my-package 'swiper)
 (add-my-package 'swiper-helm)
+(add-my-package 'arjen-grey-theme)
+(add-my-package 'smart-mode-line)
+(add-my-package 'smart-mode-line-powerline-theme)
 
 (require 'ace-jump-mode)
 (autoload
@@ -116,6 +119,7 @@
 ;(load-theme 'solarized-dark t)
 ;(load-theme 'zenburn t)
 (load-theme 'wombat t)
+;(load-theme 'arjen-grey t)
 
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 (add-hook 'cider-repl-mode-hook 'enable-paredit-mode)
@@ -287,3 +291,8 @@
   "")
 
 (global-set-key "\C-s" 'swiper-helm)
+
+
+(setq sml/no-confirm-load-theme t)
+(setq sml/theme 'powerline)
+(sml/setup)
