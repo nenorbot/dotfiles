@@ -293,6 +293,7 @@
 
 (global-set-key "\C-s" 'swiper-helm)
 
+(display-battery-mode)
 
 (setq sml/no-confirm-load-theme t)
 (setq sml/theme 'powerline)
