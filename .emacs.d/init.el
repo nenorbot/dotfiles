@@ -94,6 +94,7 @@
 (global-set-key (kbd "C-<down>") 'drag-stuff-down)
 
 (require 'helm-config)
+(helm-mode)
 (global-set-key (kbd "M-x") 'helm-M-x)
 
 (require 'cljr-helm)
