@@ -73,6 +73,9 @@
 (add-my-package 'company)
 (add-my-package 'company-quickhelp)
 (add-my-package 'command-log-mode)
+(add-my-package 'ivy)
+(add-my-package 'swiper)
+(add-my-package 'swiper-helm)
 
 (require 'ace-jump-mode)
 (autoload
@@ -247,7 +250,7 @@
 (set-face-foreground 'highlight nil)
 (set-cursor-color "#f4a460")
 (set-face-attribute 'isearch nil :background "magenta4")
-(set-face-attribute 'lazy-highlight nil :background "yellow")
+(set-face-attribute 'isearch-lazy-highlight-face nil :background "green")
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 ;(setq projectile-switch-project-action 'neotree-projectile-action)
@@ -277,3 +280,10 @@
 
 (setq company-require-match 'never)
 (setq company-selection-wrap-around t)
+
+(defface swiper-line-face
+  '((((class color) (background dark))
+     :background "green" :foreground "black"))
+  "")
+
+(global-set-key "\C-s" 'swiper-helm)
