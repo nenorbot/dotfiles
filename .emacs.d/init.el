@@ -298,3 +298,5 @@
 (setq sml/no-confirm-load-theme t)
 (setq sml/theme 'powerline)
 (sml/setup)
+
+(setq helm-move-to-line-cycle-in-source t)
