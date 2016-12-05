@@ -104,6 +104,7 @@
 (global-set-key (kbd "C-x o") 'switch-window)
 
 (add-hook 'cider-mode-hook #'eldoc-mode)
+(add-hook 'cider-repl-mode-hook #'eldoc-mode)
 ;(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 
 ;(require 'browse-kill-ring)
