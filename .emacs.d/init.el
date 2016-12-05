@@ -79,6 +79,9 @@
 (add-my-package 'arjen-grey-theme)
 (add-my-package 'smart-mode-line)
 (add-my-package 'smart-mode-line-powerline-theme)
+(add-my-package 'eclim)
+(add-my-package 'ac-emacs-eclim)
+(add-my-package 'company-emacs-eclim)
 
 (require 'ace-jump-mode)
 (autoload
@@ -301,3 +304,20 @@
 (sml/setup)
 
 (setq helm-move-to-line-cycle-in-source t)
+
+(require 'eclim)
+(require 'eclimd)
+(add-hook 'java-mode-hook 'eclim-mode)
+
+(custom-set-variables
+  '(eclim-eclipse-dirs '("~/opt/eclipse"))
+  '(eclim-executable "~/opt/eclipse/eclim"))
+
+(setq help-at-pt-display-when-idle t)
+(setq help-at-pt-timer-delay 0.1)
+(help-at-pt-set-timer)
+
+(require 'company)
+(require 'company-emacs-eclim)
+(company-emacs-eclim-setup)
+(global-company-mode t)
