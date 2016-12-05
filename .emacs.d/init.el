@@ -82,6 +82,7 @@
 (add-my-package 'eclim)
 (add-my-package 'ac-emacs-eclim)
 (add-my-package 'company-emacs-eclim)
+(add-my-package 'sublimity)
 
 (require 'ace-jump-mode)
 (autoload
@@ -321,3 +322,9 @@
 (require 'company-emacs-eclim)
 (company-emacs-eclim-setup)
 (global-company-mode t)
+
+(require 'sublimity)
+(require 'sublimity-scroll)
+;(require 'sublimity-map)
+;(require 'sublimity-attractive)
+(sublimity-mode 1)
