@@ -83,6 +83,7 @@
 (add-my-package 'ac-emacs-eclim)
 (add-my-package 'company-emacs-eclim)
 (add-my-package 'sublimity)
+(add-my-package 'smooth-scroll)
 
 (require 'ace-jump-mode)
 (autoload
@@ -328,8 +329,27 @@
 (company-emacs-eclim-setup)
 (global-company-mode t)
 
-(require 'sublimity)
-(require 'sublimity-scroll)
-;(require 'sublimity-map)
-;(require 'sublimity-attractive)
-(sublimity-mode 1)
+;; (require 'sublimity)
+;; (require 'sublimity-scroll)
+;; ;(require 'sublimity-map)
+;; ;(require 'sublimity-attractive)
+;; (sublimity-mode 1)
+
+;; (require 'smooth-scroll)
+
+(defun window-half-height ()
+  (max 1 (/ (1- (window-height (selected-window))) 2)))
+
+(defun scroll-up-half ()
+  (interactive)
+  (scroll-up (window-half-height)))
+
+(defun scroll-down-half ()
+  (interactive)
+  (scroll-down (window-half-height)))
+
+(global-set-key [next] 'scroll-up-half)
+(global-set-key (kbd "C-v") 'scroll-up-half)
+(global-set-key [prior] 'scroll-down-half)
+(global-set-key (kbd "M-v") 'scroll-down-half)
+
