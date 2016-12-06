@@ -256,8 +256,13 @@
 (dumb-jump-mode)
 
 (global-hl-line-mode t)
-(set-face-attribute 'hl-line nil :background "Gray10" :underline nil)
+(set-face-attribute 'hl-line nil :background "coral4" :underline nil)
 (set-face-foreground 'highlight nil)
+
+(add-hook 'cider-repl-mode-hook
+          (lambda ()
+            (setq-local global-hl-line-mode nil)))
+
 (set-cursor-color "#f4a460")
 (set-face-attribute 'isearch nil :background "magenta4")
 (set-face-attribute 'isearch-lazy-highlight-face nil :background "green")
