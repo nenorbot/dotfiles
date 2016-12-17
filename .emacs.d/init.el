@@ -91,7 +91,7 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-(define-key global-map (kbd "C-c f SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-c f") 'ace-jump-mode)
 
 (require 'drag-stuff)
 (drag-stuff-mode t)
