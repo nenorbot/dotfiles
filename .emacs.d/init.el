@@ -84,6 +84,7 @@
 (add-my-package 'company-emacs-eclim)
 (add-my-package 'sublimity)
 (add-my-package 'smooth-scroll)
+(add-my-package 'emmet-mode)
 
 (require 'ace-jump-mode)
 (autoload
@@ -353,3 +354,7 @@
 (global-set-key [prior] 'scroll-down-half)
 (global-set-key (kbd "M-v") 'scroll-down-half)
 
+(require 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(setq emmet-move-cursor-between-quotes t)
