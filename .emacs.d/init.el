@@ -85,6 +85,9 @@
 (add-my-package 'sublimity)
 (add-my-package 'smooth-scroll)
 (add-my-package 'emmet-mode)
+(add-my-package 'haskell-mode)
+(add-my-package 'annotate)
+(add-my-package 's) ;; https://github.com/magnars/s.el
 
 (require 'ace-jump-mode)
 (autoload
@@ -317,10 +320,6 @@
 (require 'eclimd)
 (add-hook 'java-mode-hook 'eclim-mode)
 
-(custom-set-variables
-  '(eclim-eclipse-dirs '("~/opt/eclipse"))
-  '(eclim-executable "~/opt/eclipse/eclim"))
-
 (setq help-at-pt-display-when-idle t)
 (setq help-at-pt-timer-delay 0.1)
 (help-at-pt-set-timer)
@@ -360,3 +359,38 @@
 (setq emmet-move-cursor-between-quotes t)
 
 (global-set-key (kbd "C-x k") 'kill-this-buffer)
+
+(annotate-mode)
+
+(defun blank? (s)
+  (let (i res)
+    (setq i (length s))
+    (setq res t)
+    (while (and res (>= i 1))
+      (let (c)
+        (setq c (substring s (- i 1) i))
+        (when (not (or (string= c " ") (string= c "") (string= c "\n")))
+          (setq res nil))
+        (setq i (- i 1))))
+    res))
+
+(defun blank-line? ()
+  (blank? (thing-at-point 'line t)))
+
+(defun better-delete (&optional argument)
+  (interactive)
+  (let (col)
+      (setq col (current-column))
+      (if (and (> col 0) (> (line-number-at-pos) 0) (blank-line?))
+          (progn
+            (beginning-of-line)
+            (kill-line)
+            (previous-line)
+            (if (blank-line?)
+                (move-to-column col t)
+              (end-of-line)))
+        (when (> (point) 1)
+          (paredit-backward-delete argument)))))
+
+(eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "DEL") #'better-delete))
