@@ -88,6 +88,7 @@
 (add-my-package 'haskell-mode)
 (add-my-package 'annotate)
 (add-my-package 's) ;; https://github.com/magnars/s.el
+(add-my-package 'helm-gtags)
 
 (require 'ace-jump-mode)
 (autoload
@@ -394,3 +395,35 @@
 
 (eval-after-load 'paredit
   (define-key paredit-mode-map (kbd "DEL") #'better-delete))
+
+(setq
+ helm-gtags-ignore-case t
+ helm-gtags-auto-update t
+ helm-gtags-use-input-at-cursor t
+ helm-gtags-pulse-at-cursor t
+ helm-gtags-prefix-key "\C-cg"
+ helm-gtags-suggested-key-mapping t
+ )
+
+(defun add-c-modes (hook)
+  (add-hook hook 'helm-gtags-mode)
+  (add-hook hook 'electric-pair-mode)
+  (add-hook hook 'electric-indent-mode))
+
+(require 'helm-gtags)
+;; Enable helm-gtags-mode
+
+(add-c-modes 'c-mode-hook)
+(add-c-modes 'c++-mode-hook)
+
+(define-key helm-gtags-mode-map (kbd "C-c g a") 'helm-gtags-tags-in-this-function)
+(define-key helm-gtags-mode-map (kbd "C-j") 'helm-gtags-select)
+(define-key helm-gtags-mode-map (kbd "M-.") 'helm-gtags-dwim)
+(define-key helm-gtags-mode-map (kbd "M-,") 'helm-gtags-pop-stack)
+(define-key helm-gtags-mode-map (kbd "C-c <") 'helm-gtags-previous-history)
+(define-key helm-gtags-mode-map (kbd "C-c >") 'helm-gtags-next-history)
+
+(setq-default c-basic-offset 4
+              tab-width 4
+              indent-tabs-mode t)
+
