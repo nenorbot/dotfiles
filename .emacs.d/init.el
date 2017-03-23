@@ -90,6 +90,7 @@
 (add-my-package 's) ;; https://github.com/magnars/s.el
 (add-my-package 'helm-gtags)
 (add-my-package 'ido)
+(add-my-package 'nyan-mode)
 
 (require 'ace-jump-mode)
 (autoload
@@ -441,3 +442,4 @@
 (ido-mode t)
 (define-key global-map (kbd "C-x C-f") 'ido-find-file)
 
+(nyan-mode)
