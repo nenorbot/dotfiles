@@ -54,7 +54,7 @@
 (add-my-package 'helm-projectile)
 (add-my-package 'flycheck-clojure)
 (add-my-package 'flycheck-pos-tip)
-;(add-my-package 'flycheck-tip)
+(add-my-package 'flycheck-tip)
 (add-my-package 'monky) 
 (add-my-package 'cider-eval-sexp-fu)
 (add-my-package 'perspective)
@@ -211,6 +211,15 @@
 
 ;; (with-eval-after-load 'flycheck
 ;;   (flycheck-pos-tip-mode))
+
+(eval-after-load 'flycheck '(flycheck-clojure-setup))
+(add-hook 'after-init-hook #'global-flycheck-mode)
+;; (eval-after-load 'flycheck
+;;   '(setq flycheck-display-errors-function #'flycheck-pos-tip-error-messages))
+
+(require 'flycheck-tip)
+(setq flycheck-display-errors-function 'ignore)
+(setq flycheck-tip-use-timer 'verbose)
 
 (setq monky-process-type 'cmdserver)
 
