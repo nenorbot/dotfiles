@@ -89,6 +89,7 @@
 (add-my-package 'annotate)
 (add-my-package 's) ;; https://github.com/magnars/s.el
 (add-my-package 'helm-gtags)
+(add-my-package 'ido)
 
 (require 'ace-jump-mode)
 (autoload
@@ -436,4 +437,7 @@
 (setq-default c-basic-offset 4
               tab-width 4
               indent-tabs-mode t)
+
+(ido-mode t)
+(define-key global-map (kbd "C-x C-f") 'ido-find-file)
 
