@@ -91,6 +91,7 @@
 (add-my-package 'helm-gtags)
 (add-my-package 'ido)
 (add-my-package 'nyan-mode)
+(add-my-package 'highlight-parentheses)
 
 (require 'ace-jump-mode)
 (autoload
@@ -143,6 +144,13 @@
 
 (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
 (add-hook 'cider-repl-mode-hook #'rainbow-delimiters-mode)
+
+;; (require 'highlight-parentheses)
+;; (add-hook 'clojure-mode-hook
+;; 	  (lambda ()
+;; 	    (highlight-parentheses-mode t)))
+
+(show-paren-mode 1)
 
 (require 'clj-refactor)
 
