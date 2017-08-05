@@ -83,7 +83,7 @@
 (add-my-package 'ac-emacs-eclim)
 (add-my-package 'company-emacs-eclim)
 (add-my-package 'sublimity)
-(add-my-package 'smooth-scroll)
+(add-my-package 'smooth-scrolling)
 (add-my-package 'emmet-mode)
 (add-my-package 'haskell-mode)
 (add-my-package 'annotate)
@@ -348,7 +348,9 @@
 ;; ;(require 'sublimity-attractive)
 ;; (sublimity-mode 1)
 
-;; (require 'smooth-scroll)
+(require 'smooth-scrolling)
+(smooth-scrolling-mode 1)
+(setq scroll-conservatively 101)
 
 (defun window-half-height ()
   (max 1 (/ (1- (window-height (selected-window))) 2)))
