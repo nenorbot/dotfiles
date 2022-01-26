@@ -1,0 +1,28 @@
+add_newline = true
+format = "🐧 $username@$hostname:$directory$all"
+#"$username@$hostname$directory$all"
+
+[cmd_duration]
+#min_time = 1000
+min_time = 0
+format = " took [$duration](bold yellow)"
+show_milliseconds = true
+
+[username]
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+style = "yellow"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[custom.tztime]
+command = 'date +"%H:%M"'
+when = "true"
+format = '[\[$symbol($output)\]](green)'
