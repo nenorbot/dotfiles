@@ -394,7 +394,7 @@ you should place your code here."
     ;; this doesn't work in hybrid mode, for some reason
     (add-hook 'evil-insert-state-entry-hook
               (lambda () (lsp-rust-analyzer-inlay-hints-mode 0)))
-    (add-hook 'evil-normal-state-entry-hook
+    (add-hook 'evil-insert-state-exit-hook
               (lambda () (lsp-rust-analyzer-inlay-hints-mode 1))))
   ;; (setq visible-bell 1)
   (setq cider-repl-history-file ".cider-repl-history")
