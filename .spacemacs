@@ -392,6 +392,10 @@ you should place your code here."
   ;;  (define-key rustic-mode-map (kbd ", g g") 'xref-find-definitions))
   (with-eval-after-load 'lsp-rust
     ;; this doesn't work in hybrid mode, for some reason
+    (add-hook 'evil-visual-state-entry-hook
+              (lambda () (lsp-rust-analyzer-inlay-hints-mode 0)))
+    (add-hook 'evil-visual-state-exit-hook
+              (lambda () (lsp-rust-analyzer-inlay-hints-mode 1)))
     (add-hook 'evil-insert-state-entry-hook
               (lambda () (lsp-rust-analyzer-inlay-hints-mode 0)))
     (add-hook 'evil-insert-state-exit-hook
@@ -425,7 +429,15 @@ you should place your code here."
   ;; see: https://github.com/syl20bnr/spacemacs/issues/5140
 
   (setq split-height-threshold nil)
-  (setq split-width-threshold 0))
+  (setq split-width-threshold 0)
+
+  (define-key evil-normal-state-map
+    (kbd ";")
+    (lambda ()
+      (interactive)
+      (end-of-line)
+      (insert ";")))
+  )
 
 
 ;; Do not write anything past this comment. This is where Emacs will
