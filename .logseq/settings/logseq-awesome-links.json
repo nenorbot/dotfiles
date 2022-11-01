@@ -1,0 +1,15 @@
+{
+  "promoAwesomeStyler": false,
+  "externalHeading": null,
+  "faviconsEnabled": true,
+  "internalHeading": null,
+  "pageIconsEnabled": true,
+  "inheritingHeading": null,
+  "inheritFromProp": "page-type",
+  "inheritFromHierarchy": true,
+  "dafaultPropsHeading": null,
+  "defaultPageProps": "icon::\ncolor::",
+  "defaultJournalProps": "icon::\ncolor::",
+  "nerdFontEnabled": true,
+  "disabled": false
+}

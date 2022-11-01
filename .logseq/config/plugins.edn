@@ -1,0 +1,40 @@
+{:logseq-agenda
+ {:version "v2.6.7",
+  :repo "haydenull/logseq-plugin-agenda",
+  :effect true,
+  :theme false},
+ :logseq-bullet-threading
+ {:version "v1.1.0",
+  :repo "pengx17/logseq-plugin-bullet-threading",
+  :effect false,
+  :theme false},
+ :logseq-emoji-picker-fork
+ {:version "v0.0.2",
+  :repo "walsvid/logseq-emoji-picker-fork",
+  :effect false,
+  :theme false},
+ :logseq-heatmap
+ {:version "v2.4.2",
+  :repo "pengx17/logseq-plugin-heatmap",
+  :effect true,
+  :theme false},
+ :logseq-link-preview
+ {:version "v2.2.9",
+  :repo "pengx17/logseq-plugin-link-preview",
+  :effect true,
+  :theme false},
+ :logseq-random-note
+ {:version "1.0.7",
+  :repo "tankcool/logseq-random-note",
+  :effect false,
+  :theme false},
+ :logseq-vim-shortcuts
+ {:version "v0.1.16", :repo "vipzhicheng/logseq-plugin-vim-shortcuts", :effect true, :theme false}
+ :logseq-awesome-styler {:version "v3.1.10", :repo "yoyurec/logseq-awesome-styler", :effect true, :theme false}
+ :logseq-awesome-links {:version "v1.11.4", :repo "yoyurec/logseq-awesome-links", :effect true, :theme false}
+ :logseq-awesome-ui {:version "v1.3.19", :repo "yoyurec/logseq-awesome-ui", :effect true, :theme false}
+ :logseq-sticky-headers {:version "v1.4.3", :repo "yoyurec/logseq-sticky-headers", :effect true, :theme false}
+ :logseq-banners-plugin {:version "v3.4.5", :repo "yoyurec/logseq-banners-plugin", :effect true, :theme false}
+ :logseq-tabs {:version "v1.18.0", :repo "pengx17/logseq-plugin-tabs", :effect true, :theme false}
+ :logseq-block-calendar {:version "v0.1.9", :repo "vipzhicheng/logseq-plugin-block-calendar", :effect true, :theme false}
+ :logseq-admonition-panels {:version "0.1.1", :repo "nmartin84/admonition-panels", :effect false, :theme false}}
