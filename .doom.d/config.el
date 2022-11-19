@@ -78,3 +78,8 @@
 (after! lsp-mode
   (setq lsp-rust-analyzer-server-display-inlay-hints t)
   (setq lsp-headerline-breadcrumb-enable '(project file symbols)))
+
+(after! which-key
+  (setq which-key-idle-delay 0.2)
+  (setq which-key-idle-secondary-delay 0.05))
+
