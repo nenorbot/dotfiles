@@ -82,6 +82,7 @@
       #'er/expand-region)
 
 (map! :leader
+      :desc "Comment/uncomment"
       ";"
       #'comment-line)
 
