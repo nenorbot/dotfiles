@@ -86,8 +86,16 @@
       ";"
       #'comment-line)
 
+(map! :leader
+      "c ! e"
+      #'flycheck-explain-error-at-point)
+
 (after! lsp-mode
+  (setq lsp-rust-analyzer-closing-brace-hints-min-lines 0)
   (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  (setq lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
+  (setq lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t)
+  (setq lsp-rust-analyzer-display-reborrow-hints "mutable")
   (setq lsp-headerline-breadcrumb-enable '(project file symbols)))
 
 (after! which-key

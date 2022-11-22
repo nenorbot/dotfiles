@@ -49,4 +49,7 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! darkroom)
+(package! protobuf-mode
+  :recipe (:host github
+           :repo "protocolbuffers/protobuf"
+           :files ("editors/protobuf-mode.el")))
