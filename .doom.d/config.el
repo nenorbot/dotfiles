@@ -106,3 +106,6 @@
 
 (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 
+(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+(after! clojure-mode
+  (require 'evil-cleverparens-text-objects))

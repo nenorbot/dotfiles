@@ -53,3 +53,5 @@
   :recipe (:host github
            :repo "protocolbuffers/protobuf"
            :files ("editors/protobuf-mode.el")))
+
+(package! evil-cleverparens)
