@@ -90,6 +90,18 @@
       "c ! e"
       #'flycheck-explain-error-at-point)
 
+(map! :leader
+      :desc ";"
+      "i ;"
+      #'semicolon-at-end-of-line)
+
+(map! :after rust-mode
+      :map rust-mode-map
+      :localleader
+      :desc "Expand macro"
+      "m"
+      #'lsp-rust-analyzer-expand-macro)
+
 (after! lsp-mode
   (setq lsp-rust-analyzer-closing-brace-hints-min-lines 0)
   (setq lsp-rust-analyzer-server-display-inlay-hints t)
@@ -111,6 +123,9 @@
   (require 'evil-cleverparens-text-objects))
 
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
+
+(add-hook! 'better-jumper-post-jump-hook #'recenter-top-bottom)
+
 (after! lisp-mode
   (require 'evil-cleverparens-text-objects))
 
@@ -118,3 +133,12 @@
 (setq avy-timeout-seconds 0.3)
 
 (global-undo-tree-mode)
+
+(setq evil-snipe-override-evil-repeat-keys nil)
+(setq doom-localleader-key ",")
+
+(defun semicolon-at-end-of-line ()
+  (interactive)
+  (save-excursion
+    (end-of-line)
+    (insert ";")))
