@@ -109,3 +109,5 @@
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (after! clojure-mode
   (require 'evil-cleverparens-text-objects))
+
+(display-time-mode)
