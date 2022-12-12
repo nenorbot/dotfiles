@@ -102,6 +102,12 @@
       "m"
       #'lsp-rust-analyzer-expand-macro)
 
+(map! ;; :after rust-mode
+      :map evil-normal-state-map;;evil-motion-state-map
+      :desc "lookup type"
+      "g t"
+      #'lsp-find-type-definition)
+
 (after! lsp-mode
   (setq lsp-rust-analyzer-closing-brace-hints-min-lines 0)
   (setq lsp-rust-analyzer-server-display-inlay-hints t)
