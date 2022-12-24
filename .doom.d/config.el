@@ -98,12 +98,19 @@
 (map! :after rust-mode
       :map rust-mode-map
       :localleader
+      :desc "Open Cargo.toml"
+      "f"
+      #'lsp-rust-analyzer-open-cargo-toml)
+
+(map! :after rust-mode
+      :map rust-mode-map
+      :localleader
       :desc "Expand macro"
       "m"
       #'lsp-rust-analyzer-expand-macro)
 
-(map! ;; :after rust-mode
-      :map evil-normal-state-map;;evil-motion-state-map
+(map! :after rust-mode
+      :map evil-normal-state-map
       :desc "lookup type"
       "g t"
       #'lsp-find-type-definition)
@@ -114,6 +121,7 @@
   (setq lsp-rust-analyzer-display-lifetime-elision-hints-enable "skip_trivial")
   (setq lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t)
   (setq lsp-rust-analyzer-display-reborrow-hints "mutable")
+  (setq lsp-rust-analyzer-display-chaining-hints t)
   (setq lsp-headerline-breadcrumb-enable '(project file symbols)))
 
 (after! which-key
@@ -125,15 +133,17 @@
 (add-hook 'window-setup-hook #'toggle-frame-fullscreen)
 
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+(add-hook 'clojure-mode-hook #'highlight-indent-guides-mode)
 (after! clojure-mode
   (require 'evil-cleverparens-text-objects))
 
-(add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 
 (add-hook! 'better-jumper-post-jump-hook #'recenter-top-bottom)
 
+(add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 (after! lisp-mode
   (require 'evil-cleverparens-text-objects))
+
 
 (display-time-mode)
 (setq avy-timeout-seconds 0.3)
@@ -148,3 +158,9 @@
   (save-excursion
     (end-of-line)
     (insert ";")))
+
+
+(setq highlight-indent-guides-method 'bitmap)
+(setq highlight-indent-guides-responsive 'top)
+(setq highlight-indent-guides-delay 0)
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)

@@ -56,3 +56,4 @@
 
 (package! evil-cleverparens)
 
+(package! highlight-indent-guides)
