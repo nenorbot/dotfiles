@@ -57,3 +57,5 @@
 (package! evil-cleverparens)
 
 (package! highlight-indent-guides)
+
+(package! literate-calc-mode)
