@@ -109,6 +109,7 @@
       "m"
       #'lsp-rust-analyzer-expand-macro)
 
+
 (map! :after rust-mode
       :map evil-normal-state-map
       :desc "lookup type"
@@ -177,3 +178,10 @@
   (Mib "1024 * Kib" "Mega Bit")
   (Kib "1024 * b" "Kilo Bit")
   (b "B / 8" "Bit")))
+
+(add-hook
+ 'treemacs-mode-hook
+ (lambda ()
+   (setq-local hl-line-face 'custom-line-highlight)
+   (overlay-put hl-line-overlay 'face '((t (:background "gray40" :extend t))))
+   (treemacs--setup-icon-background-colors)))
