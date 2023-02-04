@@ -126,7 +126,9 @@
   (setq lsp-rust-analyzer-display-lifetime-elision-hints-use-parameter-names t)
   (setq lsp-rust-analyzer-display-reborrow-hints "mutable")
   (setq lsp-rust-analyzer-display-chaining-hints t)
-  (setq lsp-headerline-breadcrumb-enable '(project file symbols)))
+  (setq lsp-headerline-breadcrumb-enable '(project file symbols))
+  (require 'dap-cpptools)
+  (require 'dap-gdb-lldb))
 
 (after! which-key
   (setq which-key-idle-delay 0.2)
@@ -153,6 +155,7 @@
 (setq avy-timeout-seconds 0.3)
 
 (global-undo-tree-mode)
+(add-hook 'evil-local-mode-hook 'turn-on-undo-tree-mode)
 
 (setq evil-snipe-override-evil-repeat-keys nil)
 (setq doom-localleader-key ",")
