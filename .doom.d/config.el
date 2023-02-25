@@ -188,3 +188,7 @@
    (setq-local hl-line-face 'custom-line-highlight)
    (overlay-put hl-line-overlay 'face '((t (:background "gray40" :extend t))))
    (treemacs--setup-icon-background-colors)))
+
+(setq doom-modeline-vcs-max-length 20)
+
+(setq-default right-margin-width 2)
