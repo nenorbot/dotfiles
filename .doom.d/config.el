@@ -116,6 +116,16 @@
       "g t"
       #'lsp-find-type-definition)
 
+;; (map! :after rust-mode
+;;       :map evil-normal-state-map
+;;       ">"
+;;       #'evil-cp->)
+
+;; (map! :after rust-mode
+;;       :map evil-normal-state-map
+;;       "<"
+;;       #'evil-cp-<)
+
 (after! literate-calc-mode
   (defalias 'calcFunc-uconv 'math-convert-units))
 
@@ -129,6 +139,12 @@
   (setq lsp-headerline-breadcrumb-enable '(project file symbols))
   (require 'dap-cpptools)
   (require 'dap-gdb-lldb))
+
+;; enable tree sitter parsing, text objects
+(add-hook 'rust-mode-hook #'tree-sitter-mode)
+
+;; enable tree sitter syntax highlighting
+(add-hook 'rust-mode-hook #'tree-sitter-hl-mode)
 
 (after! which-key
   (setq which-key-idle-delay 0.2)
@@ -192,3 +208,21 @@
 (setq doom-modeline-vcs-max-length 20)
 
 (setq-default right-margin-width 2)
+
+(map! :leader "j h" 'harpoon-quick-menu-hydra)
+(map! :leader "j a" 'harpoon-add-file)
+(map! :leader "j j" 'harpoon-toggle-quick-menu)
+(map! :leader "j c" 'harpoon-clear)
+(map! :leader "j f" 'harpoon-toggle-file)
+(map! :leader "1" 'harpoon-go-to-1)
+(map! :leader "2" 'harpoon-go-to-2)
+(map! :leader "3" 'harpoon-go-to-3)
+(map! :leader "4" 'harpoon-go-to-4)
+(map! :leader "5" 'harpoon-go-to-5)
+(map! :leader "6" 'harpoon-go-to-6)
+(map! :leader "7" 'harpoon-go-to-7)
+(map! :leader "8" 'harpoon-go-to-8)
+(map! :leader "9" 'harpoon-go-to-9)
+
+(after! undo-tree
+  (setq undo-tree-auto-save-history nil))

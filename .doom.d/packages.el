@@ -59,3 +59,7 @@
 (package! highlight-indent-guides)
 
 (package! literate-calc-mode)
+
+(package! explain-pause-mode)
+
+(package! harpoon)
