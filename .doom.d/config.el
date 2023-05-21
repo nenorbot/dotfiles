@@ -129,6 +129,8 @@
 (after! literate-calc-mode
   (defalias 'calcFunc-uconv 'math-convert-units))
 
+(add-hook 'org-mode-hook #'literate-calc-minor-mode)
+
 (after! lsp-mode
   (setq lsp-rust-analyzer-closing-brace-hints-min-lines 0)
   (setq lsp-rust-analyzer-server-display-inlay-hints t)
@@ -226,3 +228,5 @@
 
 (after! undo-tree
   (setq undo-tree-auto-save-history nil))
+
+;; (setq lsp-rust-analyzer-checkonsave-features '("all"))
