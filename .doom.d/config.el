@@ -230,3 +230,5 @@
   (setq undo-tree-auto-save-history nil))
 
 ;; (setq lsp-rust-analyzer-checkonsave-features '("all"))
+
+(setq evil-collection-setup-minibuffer t)
