@@ -63,3 +63,5 @@
 (package! explain-pause-mode)
 
 (package! harpoon)
+
+(package! just-mode)

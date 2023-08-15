@@ -161,7 +161,6 @@
 (after! clojure-mode
   (require 'evil-cleverparens-text-objects))
 
-
 (add-hook! 'better-jumper-post-jump-hook #'recenter-top-bottom)
 
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
@@ -232,3 +231,5 @@
 ;; (setq lsp-rust-analyzer-checkonsave-features '("all"))
 
 (setq evil-collection-setup-minibuffer t)
+
+(global-subword-mode)
