@@ -233,3 +233,5 @@
 (setq evil-collection-setup-minibuffer t)
 
 (global-subword-mode)
+
+(setq org-startup-with-inline-images t)
