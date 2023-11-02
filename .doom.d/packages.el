@@ -65,3 +65,9 @@
 (package! harpoon)
 
 (package! just-mode)
+
+;; since doom currently takes org-noter from https://github.com/weirdNox/org-noter,
+;; change it to take it directly from the new project
+(package! org-noter :recipe (:host github :repo "org-noter/org-noter" :files ("*.el" "modules/*.el")))
+
+(package! org-roam-ui)

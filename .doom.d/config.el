@@ -82,11 +82,6 @@
       #'er/expand-region)
 
 (map! :leader
-      :desc "Comment/uncomment"
-      ";"
-      #'comment-line)
-
-(map! :leader
       "c ! e"
       #'flycheck-explain-error-at-point)
 
@@ -116,6 +111,15 @@
       "g t"
       #'lsp-find-type-definition)
 
+
+(map! :leader
+      "w ]"
+      #'evil-window-right)
+
+(map! :leader
+      "w ["
+      #'evil-window-left)
+
 ;; (map! :after rust-mode
 ;;       :map evil-normal-state-map
 ;;       ">"
@@ -140,7 +144,18 @@
   (setq lsp-rust-analyzer-display-chaining-hints t)
   (setq lsp-headerline-breadcrumb-enable '(project file symbols))
   (require 'dap-cpptools)
-  (require 'dap-gdb-lldb))
+  (require 'dap-lldb)
+  (require 'dap-gdb-lldb)
+
+  (dap-register-debug-template
+   "Rust::LLDB Run Configuration"
+   (list :type "lldb-mi"
+         :request "launch"
+         :name "Rust::LLDB::Run"
+	 :gdbpath "rust-lldb"
+         :target nil
+         :cwd nil)))
+
 
 ;; enable tree sitter parsing, text objects
 (add-hook 'rust-mode-hook #'tree-sitter-mode)
@@ -234,4 +249,16 @@
 
 (global-subword-mode)
 
-(setq org-startup-with-inline-images t)
+(setq org-noter-highlight-selected-text t)
+
+(use-package! org-roam-ui
+    :after org-roam ;; or :after org
+;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+;;         a hookable mode anymore, you're advised to pick something yourself
+;;         if you don't care about startup time, use
+;;  :hook (after-init . org-roam-ui-mode)
+    :config
+    (setq org-roam-ui-sync-theme t
+          org-roam-ui-follow t
+          org-roam-ui-update-on-save t
+          org-roam-ui-open-on-start t))
