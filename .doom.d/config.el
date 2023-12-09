@@ -81,6 +81,11 @@
       "v"
       #'er/expand-region)
 
+;; (map! :leader
+;;       :desc "Comment/uncomment"
+;;       ";"
+;;       #'comment-line)
+
 (map! :leader
       "c ! e"
       #'flycheck-explain-error-at-point)
