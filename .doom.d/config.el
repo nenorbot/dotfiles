@@ -134,6 +134,11 @@
       "w ["
       #'evil-window-left)
 
+
+(map! :leader
+      "o c"
+      #'calc)
+
 ;; (map! :after rust-mode
 ;;       :map evil-normal-state-map
 ;;       ">"
@@ -215,14 +220,14 @@
 ;; (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
 (setq math-additional-units '(
-                              (GB "1024 * MiB" "Giga Byte")
-                              (MB "1024 * KiB" "Mega Byte")
-                              (KB "1024 * B" "Kilo Byte")
-                              (B nil "Byte")
-                              (Gib "1024 * Mib" "Giga Bit")
-                              (Mib "1024 * Kib" "Mega Bit")
-                              (Kib "1024 * b" "Kilo Bit")
-                              (b "B / 8" "Bit")))
+ (B nil "Byte")
+ (b "B / 8" "Bit")
+ (KB "1024 * B" "Kilo Byte")
+ (MB "1024 * KB" "Mega Byte")
+ (GB "1024 * MB" "Giga Byte")
+ (KiB "1024 * b" "Kilo Bit")
+ (MiB "1024 * KiB" "Mega Bit")
+ (GiB "1024 * MiB" "Giga Bit")))
 
 (setq doom-modeline-vcs-max-length 20)
 
