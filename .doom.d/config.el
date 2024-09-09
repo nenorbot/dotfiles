@@ -222,12 +222,18 @@
 (setq math-additional-units '(
  (B nil "Byte")
  (b "B / 8" "Bit")
- (KB "1024 * B" "Kilo Byte")
- (MB "1024 * KB" "Mega Byte")
- (GB "1024 * MB" "Giga Byte")
- (KiB "1024 * b" "Kilo Bit")
- (MiB "1024 * KiB" "Mega Bit")
- (GiB "1024 * MiB" "Giga Bit")))
+ (KB "1000 * B" "Kilo Byte")
+ (MB "1000 * KB" "Mega Byte")
+ (GB "1000 * MB" "Giga Byte")
+ (TB "1000 * GB" "Tera Byte")
+ (KiB "1024 * B" "Kibi Byte")
+ (MiB "1024 * KiB" "Mebi Byte")
+ (GiB "1024 * MiB" "Gibi Byte")
+ (TiB "1024 * GiB" "Tebi Byte")
+ (Kbit "1000 * b" "Kilo Bit")
+ (Mbit "1000 * Kbit" "Mega Bit")
+ (Gbit "1000 * Mbit" "Giga Bit")
+ (Tbit "1000 * Gbit" "Tera Bit")))
 
 (setq doom-modeline-vcs-max-length 20)
 
@@ -243,22 +249,8 @@
 
 (setq better-jumper-add-jump-behavior 'replace)
 
-;; (after! corfu-mode
-;;   ;; TAB-and-Go customizations
-;;   (corfu-cycle t)           ;; Enable cycling for `corfu-next/previous'
-;;   (corfu-preselect 'prompt) ;; Always preselect the prompt
-;;   )
-
-;; ;; Use TAB for cycling, default is `corfu-complete'.
-;; (map! :after corfu-mode
-;;       :map corfu-map
-;;         "TAB" corfu-next
-;;         [tab] corfu-next
-;;         "S-TAB" corfu-previous
-;;         [backtab] corfu-previous
-;;         ;; ([tab] . corfu-next)
-;;         ;; ("S-TAB" . corfu-previous)
-;;         ;; ([backtab] . corfu-previous)
-;;         )
-
-;; ;;
+(map! :after calc-mode
+  :map calc-mode-map
+  "C-o" #'casual-calc-tmenu
+  :map calc-alg-map
+  "C-o" #'casual-calc-tmenu)
