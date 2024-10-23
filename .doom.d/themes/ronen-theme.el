@@ -71,8 +71,8 @@ determine the exact padding."
    (cyan       teal)
    (dark-cyan  cyan)
 
-   ;; face categories -- required for all themes
-   (highlight      yellow)
+  ;; face categories -- required for all themes
+   (highlight yellow)
    (vertical-bar   (doom-darken base1 0.5))
    (selection      base2)
    (builtin        red)
@@ -119,7 +119,7 @@ determine the exact padding."
 
   ;;;; Base theme face overrides
   (
-
+   ((hl-line &override) :background "#4F5B66")
    ((line-number &override) :foreground base4)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)
