@@ -193,10 +193,13 @@
 
 ;; (add-hook! 'better-jumper-post-jump-hook #'recenter-top-bottom)
 
-;; (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
-;; (after! lisp-mode
-;;   (require 'evil-cleverparens-text-objects))
+(add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
+(after! lisp-mode
+  (require 'evil-cleverparens-text-objects))
 
+(add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
+(after! clojure-mode
+  (require 'evil-cleverparens-text-objects))
 
 (display-time-mode)
 (setq avy-timeout-seconds 0.3)

@@ -50,8 +50,4 @@
 ;; (unpin! t)
 
 (package! denote)
-
-(use-package! ultra-scroll0
-  :init (setq scroll-conservatively 101
-              scroll-margin 0)
-  :config (ultra-scroll-mode 1))
+(package! evil-cleverparens)

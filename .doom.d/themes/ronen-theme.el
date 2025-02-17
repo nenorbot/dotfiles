@@ -45,10 +45,10 @@ determine the exact padding."
 
   ;; name        default   256       16
   ((bg         '("#181818" nil       nil            ))
-   (bg-alt     '("#1a1a1a" nil       nil            ))
+   (bg-alt     '("#131313" nil       nil            ))
    (base0      '("#1B2B34" "black"   "black"        ))
    (base1      '("#343D46" "#1e1e1e" "brightblack"  ))
-   (base2      '("#4F5B66" "#2e2e2e" "brightblack"  ))
+   (base2      '("#193C56" "#193C56" "brightblack"  ))
    (base3      '("#65737E" "#262626" "brightblack"  ))
    (base4      '("#A7ADBA" "#3f3f3f" "brightblack"  ))
    (base5      '("#C0C5CE" "#525252" "brightblack"  ))
@@ -70,14 +70,15 @@ determine the exact padding."
    (violet     '("#C594C5" "#a9a1e1" "brightmagenta"))
    (cyan       teal)
    (dark-cyan  cyan)
+   (copper '("#B87333" "#B87333" "copper"))
 
   ;; face categories -- required for all themes
    (highlight yellow)
    (vertical-bar   (doom-darken base1 0.5))
    (selection      base2)
    (builtin        red)
-   (comments       (if doom-oceanic-next-brighter-comments dark-cyan base3))
-   (doc-comments   (doom-lighten (if doom-oceanic-next-brighter-comments dark-cyan base3) 0.25))
+   (comments       (if doom-oceanic-next-brighter-comments copper base3))
+   (doc-comments   (doom-lighten (if doom-oceanic-next-brighter-comments copper base3) 0.25))
    (constants      orange)
    (functions      blue)
    (keywords       violet)
@@ -119,7 +120,8 @@ determine the exact padding."
 
   ;;;; Base theme face overrides
   (
-   ((hl-line &override) :background "#4F5B66")
+   ;; ((hl-line &override) :background "#4F5B66")
+   ((hl-line &override) :background "#193C56")
    ((line-number &override) :foreground base4)
    ((line-number-current-line &override) :foreground fg)
    ((font-lock-comment-face &override)

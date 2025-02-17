@@ -1,0 +1,13 @@
+shell = "/opt/homebrew/bin/fish"
+[window]
+opacity = 1
+startup_mode = "Maximized"
+option_as_alt = "Both"
+[font]
+normal.family = "JetBrains Mono"
+bold.family = "JetBrains Mono"
+italic.family = "JetBrains Mono"
+bold_italic.family = "JetBrains Mono"
+[colors]
+# primary.background = "#181818"
+primary.background = "#0b0b0b"
