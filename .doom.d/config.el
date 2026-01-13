@@ -76,6 +76,15 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;
+
+
+
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -149,10 +158,10 @@
 ;;       "<"
 ;;       #'evil-cp-<)
 
-(after! literate-calc-mode
-  (defalias 'calcFunc-uconv 'math-convert-units))
+;; (after! literate-calc-mode
+;;   (defalias 'calcFunc-uconv 'math-convert-units))
 
-(add-hook 'org-mode-hook #'literate-calc-minor-mode)
+;; (add-hook 'org-mode-hook #'literate-calc-minor-mode)
 
 (after! lsp-mode
   (setq lsp-rust-analyzer-closing-brace-hints-min-lines 0)
@@ -162,6 +171,14 @@
   (setq lsp-rust-analyzer-display-reborrow-hints "mutable")
   (setq lsp-rust-analyzer-display-chaining-hints t)
   (setq lsp-headerline-breadcrumb-enable '(project file symbols))
+
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;; Enable for linux rust-analyzer ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  (setq lsp-rust-analyzer-cargo-target "x86_64-unknown-linux-gnu")
+
   ;; (require 'dap-cpptools)
   ;; (require 'dap-lldb)
   ;; (require 'dap-gdb-lldb)
@@ -303,3 +320,20 @@
       org-journal-file-format "%Y-%m-%d.org"
       org-journal-date-prefix "#+TITLE: "
       org-journal-time-prefix "* ")
+
+(after! vertico
+  ;; Ensure we start in insert mode
+  (setq evil-minibuffer-state 'insert)
+
+  ;; Re-bind j/k only for the vertico-map in Normal state
+  (evil-define-key 'normal vertico-map
+    (kbd "j") #'vertico-next
+    (kbd "k") #'vertico-previous)
+
+  ;; Re-bind ESC to switch to normal mode, or quit if already in normal
+  (define-key vertico-map (kbd "<escape>")
+    (lambda ()
+      (interactive)
+      (if (evil-normal-state-p)
+          (abort-recursive-edit)
+        (evil-normal-state)))))
